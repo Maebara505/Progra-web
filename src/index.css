@@ -1,0 +1,235 @@
+/* --- Variables de Tema (Modern & Clean) --- */
+:root {
+  --primary-color: #2563eb;
+  --bg-color: #f8fafc;
+  --card-bg: #ffffff;
+  --text-main: #0f172a;
+  --text-muted: #64748b;
+  --border-color: #e2e8f0;
+  --poke-red: #ef4444;
+  --calc-clear: #fee2e2;
+  --calc-equal: #dcfce7;
+}
+
+/* --- Reseteo Global --- */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  padding: 3rem 1rem;
+}
+
+#root {
+  width: 100%;
+  max-width: 900px;
+}
+
+h1, h2, h3 {
+  color: var(--text-main);
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+/* --- Contenedores Principales (Tarjetas) --- */
+.main-menu, .view-container, .card {
+  background-color: var(--card-bg);
+  padding: 2.5rem;
+  border-radius: 16px;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+/* --- Botones Globales --- */
+button {
+  background-color: var(--card-bg);
+  color: var(--text-main);
+  border: 1px solid var(--border-color);
+  padding: 0.75rem 1.25rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+button:hover {
+  background-color: var(--bg-color);
+  border-color: #cbd5e1;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+/* --- Inputs Globales --- */
+input {
+  padding: 0.75rem 1rem;
+  border: 2px solid var(--border-color);
+  border-radius: 8px;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  width: 100%;
+  max-width: 300px;
+  box-sizing: border-box;
+}
+
+input:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+}
+
+/* =========================================
+   Estilos Específicos por Componente
+   ========================================= */
+
+/* App.tsx (Menú) */
+.menu-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
+/* Addition.tsx */
+.addition-container input {
+  margin-bottom: 1rem;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Calculator.tsx */
+.calculator-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  margin-top: 1rem;
+}
+
+.calculator-grid button {
+  font-size: 1.25rem;
+  padding: 1rem;
+  font-weight: 600;
+}
+
+.calc-display {
+  width: 100%;
+  max-width: 100%;
+  font-size: 2rem;
+  text-align: right;
+  padding: 1rem;
+  background-color: var(--bg-color);
+  border: none;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+/* PokemonSearch.tsx */
+/* =========================================
+   Estilos de la Pokédex (Limpio y Moderno)
+   ========================================= */
+.pokedex-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.search-container {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 2rem;
+}
+
+.search-container input {
+  padding: 12px 20px;
+  border: 2px solid var(--border-color);
+  border-radius: 8px;
+  width: 100%;
+  max-width: 400px;
+  font-size: 1rem;
+}
+
+.search-container button {
+  background-color: var(--poke-red);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+.search-container button:hover {
+  background-color: #dc2626;
+}
+
+.poke-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 20px;
+  padding: 10px;
+}
+
+.poke-card {
+  background-color: white;
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.poke-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  border-color: var(--primary-color);
+}
+
+.poke-card img {
+  width: 90px;
+  height: 90px;
+  margin-bottom: 10px;
+}
+
+.poke-card h4 {
+  margin: 0;
+  color: var(--text-main);
+  text-transform: capitalize;
+}
+
+.poke-card p {
+  margin: 5px 0 0 0;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+/* Detalle del Pokémon */
+.detail-view {
+  background: white;
+  border-radius: 16px;
+  padding: 40px;
+  max-width: 500px;
+  margin: 0 auto;
+  text-align: center;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  border: 2px solid var(--poke-red);
+}
+
+.detail-view img {
+  width: 200px;
+  background-color: #f8fafc;
+  border-radius: 50%;
+  padding: 20px;
+  margin-bottom: 20px;
+}
