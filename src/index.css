@@ -1,4 +1,4 @@
-/* --- Variables de Tema (Modern & Clean) --- */
+
 :root {
   --primary-color: #2563eb;
   --bg-color: #f8fafc;
@@ -11,7 +11,7 @@
   --calc-equal: #dcfce7;
 }
 
-/* --- Reseteo Global --- */
+
 body {
   margin: 0;
   font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
@@ -35,7 +35,7 @@ h1, h2, h3 {
   font-weight: 600;
 }
 
-/* --- Contenedores Principales (Tarjetas) --- */
+
 .main-menu, .view-container, .card {
   background-color: var(--card-bg);
   padding: 2.5rem;
@@ -45,7 +45,6 @@ h1, h2, h3 {
   transition: all 0.3s ease;
 }
 
-/* --- Botones Globales --- */
 button {
   background-color: var(--card-bg);
   color: var(--text-main);
@@ -70,7 +69,6 @@ button:active {
   transform: translateY(0);
 }
 
-/* --- Inputs Globales --- */
 input {
   padding: 0.75rem 1rem;
   border: 2px solid var(--border-color);
@@ -87,10 +85,6 @@ input:focus {
   border-color: var(--primary-color);
   box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
 }
-
-/* =========================================
-   Estilos Específicos por Componente
-   ========================================= */
 
 /* App.tsx (Menú) */
 .menu-buttons {
@@ -136,9 +130,6 @@ input:focus {
 }
 
 /* PokemonSearch.tsx */
-/* =========================================
-   Estilos de la Pokédex (Limpio y Moderno)
-   ========================================= */
 .pokedex-header {
   text-align: center;
   margin-bottom: 2rem;

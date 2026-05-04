@@ -9,12 +9,10 @@ function PokemonSearch() {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [selectedPokemon, setSelectedPokemon] = useState<PokemonDetail | null>(null);
 
-  // 1. Hook de Ciclo de Vida: Carga los primeros 20 al abrir la página
   useEffect(() => {
     loadInitialPokemon();
   }, []);
 
-  // Función para cargar la lista inicial
   const loadInitialPokemon = async () => {
     setIsLoading(true);
     try {
@@ -30,12 +28,11 @@ function PokemonSearch() {
     }
   };
 
-  // 2. Función de Búsqueda: Filtra por letras
   const handleSearch = async () => {
     const query = searchQuery.trim().toLowerCase();
 
     if (!query) {
-      loadInitialPokemon(); // Recarga los 20 iniciales si el input está vacío
+      loadInitialPokemon(); 
       return;
     }
 
@@ -43,7 +40,6 @@ function PokemonSearch() {
     setSelectedPokemon(null);
 
     try {
-      // PASO 1: Intentar búsqueda por nombre exacto (Más eficiente)
       const exactResponse = await fetch(`${API_CONFIG.BASE_URL}pokemon/${query}`, {
         headers: { 'x-api-key': API_CONFIG.API_KEY }
       });
@@ -57,7 +53,6 @@ function PokemonSearch() {
         };
         setPokemonList([singleResult]);
       } else {
-        // PASO 2: Si no es exacto, buscar coincidencias parciales en la Gen 1
         const listResponse = await fetch(`${API_CONFIG.BASE_URL}pokemon?limit=151`, {
           headers: { 'x-api-key': API_CONFIG.API_KEY }
         });
@@ -70,7 +65,7 @@ function PokemonSearch() {
         if (filtered.length > 0) {
           formatAndSetList(filtered);
         } else {
-          setPokemonList([]); // No se encontró nada
+          setPokemonList([]); 
           alert("No Pokémon found matching that name.");
         }
       }
@@ -82,7 +77,6 @@ function PokemonSearch() {
     }
   };
 
-  // Función auxiliar para mapear datos y no repetir código (DRY)
   const formatAndSetList = (results: any[]) => {
     const formattedList: PokemonItem[] = results.map((poke: any) => {
       const urlParts = poke.url.split('/');
@@ -97,7 +91,6 @@ function PokemonSearch() {
     setPokemonList(formattedList);
   };
 
-  // Función para ver el detalle de uno específico
   const fetchDetailedData = async (id: number) => {
     setIsLoading(true);
     try {
@@ -120,7 +113,6 @@ function PokemonSearch() {
     }
   };
 
-  // --- RENDERIZADO DEL DETALLE ---
   if (selectedPokemon) {
     return (
       <div>
@@ -144,7 +136,6 @@ function PokemonSearch() {
     );
   }
 
-  // --- RENDERIZADO DE LA GRILLA Y BUSCADOR ---
   return (
     <div>
       <div className="pokedex-header">
